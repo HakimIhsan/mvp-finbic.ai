@@ -1,5 +1,5 @@
-
-    import { Fragment } from 'react'
+import { Fragment } from 'react'
+import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
   ArrowPathIcon,
@@ -20,9 +20,10 @@ const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
 ]
-function Menu() {
+
+export default function Menu() {
   return (
-<Popover className="relative">
+    <Popover className="relative">
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
         <span>Solutions</span>
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
@@ -71,7 +72,5 @@ function Menu() {
         </Popover.Panel>
       </Transition>
     </Popover>
-  );
+  )
 }
-
-export default Menu;
