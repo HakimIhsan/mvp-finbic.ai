@@ -1,76 +1,140 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import {
-  ArrowPathIcon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-} from '@heroicons/react/24/outline'
+import { useState } from 'react'
+import { RadioGroup } from '@headlessui/react'
 
-const solutions = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: "Your customers' data will be safe and secure", href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+const menu = [
+  {
+    name: 'Upload your documents',
+    description: 'The system will organize and classify from your documents.',
+  },
+  {
+    name: 'Type manual',
+    description: 'Enter information manually to customize and create your own.',
+  },
+  {
+    name: 'Connect your bank account',
+    description: 'The system should automatically record from your bank.'
+  },
 ]
 
 export default function Menu() {
-  return (
-    <Popover className="relative">
-      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-        <span>Solutions</span>
-        <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-      </Popover.Button>
+  const [selected, setSelected] = useState(menu[0])
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-          <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className="p-4">
-              {solutions.map((item) => (
-                <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
-                  <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                    <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <a href={item.href} className="font-semibold text-gray-900">
-                      {item.name}
-                      <span className="absolute inset-0" />
-                    </a>
-                    <p className="mt-1 text-gray-600">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-              {callsToAction.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
-                >
-                  <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                  {item.name}
-                </a>
-              ))}
-            </div>
+  return (   
+    
+    <div className="mt-10 mx-auto w-full max-w-md">
+       <div
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          aria-hidden="true"
+        >
+          <div
+            className="relative left-[calc(60%-12rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#4169E1] to-[#50C878] opacity-80 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+          />
+        </div>
+    <h1 className="text-lg font-bold text-center leading-8 text-gray-900">
+    Please provide financial records such as and not limited to incomes, monthly expense, credit, tax, and other.
+    </h1> 
+
+    <div className="mt-3 max-w-md mx-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 w-full px-8 py-10">
+    <div className="mx-auto w-full max-w-md">
+    <p2 className="text-lg text-center leading-8 text-gray-900">
+    How would you like to provide?
+    </p2> 
+    </div>
+      <div className="mt-2 mx-auto w-full max-w-md">
+        <RadioGroup value={selected} onChange={setSelected}>
+          <RadioGroup.Label className="sr-only">Menu options</RadioGroup.Label>
+          <div className="space-y-2">
+            {menu.map((menu) => (
+              <RadioGroup.Option
+                key={menu.name}
+                value={menu}
+                className={({ active, checked }) =>
+                  `${
+                    active
+                      ? 'ring-2 ring-white/60 ring-offset-2 ring-offset-sky-300'
+                      : ''
+                  }
+                  ${checked ? 'bg-sky-900/75 text-white' : 'bg-white'}
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                }
+              >
+                {({ active, checked }) => (
+                  <>
+                    <div className="flex w-full items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="text-sm">
+                          <RadioGroup.Label
+                            as="p"
+                            className={`font-medium  ${
+                              checked ? 'text-white' : 'text-gray-900'
+                            }`}
+                          >
+                            {menu.name}
+                          </RadioGroup.Label>
+                          <RadioGroup.Description
+                            as="span"
+                            className={`inline ${
+                              checked ? 'text-sky-100' : 'text-gray-500'
+                            }`}
+                          >
+                            <span>
+                              {menu.description}
+                            </span>{' '}
+                            <span aria-hidden="true"></span>{' '}
+                          </RadioGroup.Description>
+                        </div>
+                      </div>
+                      {checked && (
+                        <div className="shrink-0 text-white">
+                          <CheckIcon className="h-6 w-6" />
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
+              </RadioGroup.Option>
+            ))}
           </div>
-        </Popover.Panel>
-      </Transition>
-    </Popover>
+        </RadioGroup>
+       </div>
+          <div className="mt-5 flex items-center justify-center gap-x-6">
+              <a
+                href="#"
+                className="rounded-md bg-green-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
+                Next
+              </a>
+            </div>
+           </div>
+              <div
+                className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                aria-hidden="true"
+              >
+                <div
+                  className="relative left-[calc(20%+2rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#4169E1] to-[#50C878] opacity-100 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                  style={{
+                    clipPath:
+                      'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                  }}
+                />
+              </div>
+    </div>
+  )
+}
+function CheckIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <circle cx={12} cy={12} r={12} fill="#fff" opacity="0.2" />
+      <path
+        d="M7 13l3 3 7-7"
+        stroke="#fff"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   )
 }
