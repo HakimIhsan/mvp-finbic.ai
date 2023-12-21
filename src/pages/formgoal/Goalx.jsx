@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { RadioGroup } from '@headlessui/react'
-
+import { Fragment, useState } from 'react'
+import { RadioGroup, Dialog, Transition } from '@headlessui/react'
 
 const Goal = [
   {
@@ -39,10 +38,67 @@ const Goal = [
 
 export default function Goalx() {
   const [selected, setSelected] = useState(Goal[0])
+  let [isOpen, setIsOpen] = useState(true)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
 
   return (   
     
     <div className="mt-10 mx-auto w-full max-w-md">
+
+    {/* Breadcrumbs Stepper */}
+    <ol className="flex items-center mt-10 w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-opacity-10 dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
+         <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          1
+        </span>
+        Select
+        <svg
+          className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 12 10"
+        >
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+        </svg>
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          2
+        </span>
+       Upload
+      </li>
+      <li className="flex items-center text-blue-600 dark:text-blue-500">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+          2
+        </span>
+        Create Goal
+        <svg
+          className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" 
+          href="#"
+          fill="none"
+          viewBox="0 0 12 10"
+        >
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+        </svg>
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          4
+        </span>
+       Result
+      </li>
+    </ol>
+
        <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -60,25 +116,13 @@ export default function Goalx() {
     </h1> 
 
     <div className="mt-3 max-w-md mx-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 w-full px-8 py-10">
-    <div className="mx-auto w-full max-w-md">
-                <label htmlFor="income-number" className="block text-sm font-medium leading-6 text-gray-900">
-                     Your goal's name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="text"
-                        name="monthly-income"
-                        id="monthly-income"
-                        autoComplete="given-income"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
+    
     <div className="mx-auto w-full max-w-md">
     <p2 className="text-lg text-center leading-8 text-gray-900">
-    Some things people plan for. Or pick your top 1 financial goals below.
+    Some things people plan for (Select your number one financial goal below.)
     </p2> 
     </div>
-      <div className="mt-2 mx-auto w-full max-w-md">
+      <div className="mt-5 mx-auto w-full max-w-md">
         <RadioGroup value={selected} onChange={setSelected}>
           <RadioGroup.Label className="sr-only">Menu options</RadioGroup.Label>
           <div className="space-y-2">
@@ -109,17 +153,6 @@ export default function Goalx() {
                           >
                             {Goal.list}
                           </RadioGroup.Label>
-                          <RadioGroup.Description
-                            as="span"
-                            className={`inline ${
-                              checked ? 'text-sky-100' : 'text-gray-500'
-                            }`}
-                          >
-                            <span>
-                              {Goal.description}
-                            </span>{' '}
-                            <span aria-hidden="true"></span>{' '}
-                          </RadioGroup.Description>
                         </div>
                       </div>
                       {checked && (
@@ -134,15 +167,87 @@ export default function Goalx() {
             ))}
           </div>
         </RadioGroup>
+
+
+        <div className="mx-auto w-full max-w-md">
+                <label htmlFor="income-number" className="block mt-10 text-sm font-medium leading-6 text-gray-900">
+                     Or you have the option to create your own goal
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="monthly-income"
+                        id="monthly-income"
+                        autoComplete="given-income"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                    </div>
        </div>
           <div className="mt-5 flex items-center justify-center gap-x-6">
               <a
                 href="#"
+                onClick={openModal}
                 className="rounded-md bg-green-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
                 Create and Save
               </a>
             </div>
            </div>
+
+           <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    
+                 The goal has been successfully created!
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                    Thank you for successfully setting up your financial goal. This marks the final step, and you are now poised to receive your financial health score and analysis!
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                    Got it, Thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
               <div
                 className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
                 aria-hidden="true"
@@ -156,7 +261,8 @@ export default function Goalx() {
                 />
               </div>
               </div>
-    </div>
+              
+
   )
 }
 function CheckIcon(props) {

@@ -150,6 +150,7 @@ import { Fragment, useState } from 'react'
               </button>
               <button
                 type="submit"
+                onClick={openModal}
                 className="rounded-md bg-green-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
               >
                 Save & Next
