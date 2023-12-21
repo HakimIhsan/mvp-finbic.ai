@@ -32,7 +32,7 @@ export default function Menu() {
         <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
           1
         </span>
-        Menu Options 
+        Select 
         <svg
           className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
           aria-hidden="true"
@@ -62,6 +62,12 @@ export default function Menu() {
       <li className="flex items-center">
         <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
           3
+        </span>
+       Create Goal
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          4
         </span>
        Result
       </li>

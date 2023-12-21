@@ -1,7 +1,18 @@
 import { DocumentIcon } from '@heroicons/react/20/solid'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
 
       export default function Bank() {
+        let [isOpen, setIsOpen] = useState(true)
+
+        function closeModal() {
+          setIsOpen(false)
+        }
+      
+        function openModal() {
+          setIsOpen(true)
+        }
         return (
           <form>
             <div className="space-y-2">
@@ -25,7 +36,7 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
         <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
           1
         </span>
-        Upload Options
+        Select
         <svg
           className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
           aria-hidden="true"
@@ -57,9 +68,15 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
         <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
           3
         </span>
+       Create Goal
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          4
+        </span>
        Result
       </li>
-     </ol>
+    </ol>
                 <h2 className="text-lg font-bold text-center leading-8 mt-5 text-gray-900">Upload your personal financial files.</h2>
                 <p className="mt-1 text-sm leading-6 text-center text-gray-600">Upload documents online to automate tracking and facilitate faster analysis by our system.</p>
                           </div>
@@ -84,7 +101,7 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
                     </label>
                     <p className="pl-1">or drag and drop</p>
                   </div>
-                  <p className="text-xs leading-5 text-gray-600">Excel(xlsx.) & PDF up to 10MB</p>
+                  <p className="text-xs leading-5 text-gray-600">Excel (xlsx.) up to 10MB</p>
                 </div>
               </div>
           
@@ -118,11 +135,66 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
               </button>
               <button
                 type="submit"
+                onClick={openModal}
                 className="rounded-md bg-green-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
               >
                 Save & Next
               </button>
               </div>
+              <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Your submission was successful
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                    
+                Thank you for successfully submitting your financial file. You will now be directed to the next page, bringing you one step closer to obtaining your financial health result.
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Thanks, yes please!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
               
                     </div>
                   </div>
