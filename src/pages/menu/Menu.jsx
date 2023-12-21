@@ -20,8 +20,54 @@ export default function Menu() {
   const [selected, setSelected] = useState(menu[0])
 
   return (   
+
+    
     
     <div className="mt-10 mx-auto w-full max-w-md">
+
+   {/* Breadcrumbs Stepper */}
+
+   <ol className="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-opacity-10 dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
+      <li className="flex items-center text-blue-600 dark:text-blue-500">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+          1
+        </span>
+        Menu Options 
+        <svg
+          className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" 
+          href="#"
+          fill="none"
+          viewBox="0 0 12 10"
+        >
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+        </svg>
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          2
+        </span>
+        Upload 
+        <svg
+          className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 12 10"
+        >
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+        </svg>
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          3
+        </span>
+       Result
+      </li>
+    </ol>
+
+      {/* Background overlay uppper */}
        <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -34,10 +80,13 @@ export default function Menu() {
             }}
           />
         </div>
-    <h1 className="text-lg font-bold text-center leading-8 text-gray-900">
+
+      {/* Page title*/}
+    <h1 className="text-lg mt-10 font-bold text-center leading-8 text-gray-900">
     Please provide financial records such as and not limited to incomes, monthly expense, credit, tax, and other.
     </h1> 
 
+    {/* Menu Radio */}
     <div className="mt-3 max-w-md mx-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 w-full px-8 py-10">
     <div className="mx-auto w-full max-w-md">
     <p2 className="text-lg text-center leading-8 text-gray-900">

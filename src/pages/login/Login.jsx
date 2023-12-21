@@ -16,7 +16,7 @@ export default function Login() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <img
               className="mx-auto w-[5rem] max-w-none rounded-md ring-0 ring-white/10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              src="https://previews.dropbox.com/p/thumb/ACES8N7LYdl_Lys181MqTOxJjefn2TGFmJoU_-u8R12EYsmbLUOvkqsgHL3opIBVG9dpobZ_S4mBNDn7rszDChq2L86Ku95DE7HGMso-SOGYViQ6L71-HL-9dfy8m4YfFS9RSNbwp8c6fCRj-TOFLoLXuWEr-44xhk5cqCGuNsiKSkDBVGFiQqyx-7egGjSLwY-s4MuwrSmA2aIV8qW90pAS-MhkJ-Bhb-oeNkbROxQceuUlgXCP6u8SWQJEhiRsiBIDb86JvNwcHt8dhinf4ulXSaP1MTqmnQjdzlaPl8ISx_S-77uFfyYm5HGBeeNAlmSXYzDO4elhIHp6fddXTk2S/p.png"
               alt=""
                />
           <div className="text-center">
@@ -25,17 +25,12 @@ export default function Login() {
             </h1>
             
             <p className="mt-10 text-lg leading-8 text-gray-600">
-            Finbic.ai is your free financial wizard tools that analyze your day-to-day spending to help you making the right decision, give recommendation, and prevent excessive spending. 
+            <span className="px-2 text-white bg-blue-900 rounded dark:bg-blue-900">
+            Finbic.ai</span> is your free financial wizard tools that analyze your day-to-day spending to help you making the right decision, give recommendation, and prevent excessive spending. 
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
                   <div className="flex flex-wrap gap-2">
-                  <button type="button" 
-                  className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
-                      <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                     <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
-                     </svg>
-                     Continue with Facebook
-                      </button>
+                  
                       </div>
                       <button type="button" class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
                        <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">

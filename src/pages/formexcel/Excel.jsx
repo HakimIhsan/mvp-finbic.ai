@@ -17,7 +17,50 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
                }}
              />
             </div>
-                <h2 className="text-lg font-bold text-center leading-8 text-gray-900">Upload your personal financial files.</h2>
+
+            <div className="mt-10 mx-auto w-full max-w-md">
+              {/* Breadcrumbs Stepper */}
+        <ol className="flex items-center mt-10 w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-opacity-10 dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
+         <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          1
+        </span>
+        Upload Options
+        <svg
+          className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 12 10"
+        >
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+        </svg>
+      </li>
+
+      <li className="flex items-center text-blue-600 dark:text-blue-500">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+          2
+        </span>
+        Upload
+        <svg
+          className="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" 
+          href="#"
+          fill="none"
+          viewBox="0 0 12 10"
+        >
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+        </svg>
+      </li>
+      <li className="flex items-center">
+        <span className="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          3
+        </span>
+       Result
+      </li>
+     </ol>
+                <h2 className="text-lg font-bold text-center leading-8 mt-5 text-gray-900">Upload your personal financial files.</h2>
                 <p className="mt-1 text-sm leading-6 text-center text-gray-600">Upload documents online to automate tracking and facilitate faster analysis by our system.</p>
                           </div>
                
@@ -98,6 +141,7 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
                 />
               </div>
             <div className="mt-6 flex items-center justify-end gap-x-6">
+            </div>
             </div>
        </form>       
         )
