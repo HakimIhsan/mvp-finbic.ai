@@ -7,6 +7,8 @@ import Manual from './pages/formmanual/Manual';
 import Excel from './pages/formexcel/Excel';
 import Bank from './pages/formbank/Bank';
 import Dashboard from './pages/dashboard/Dashboard';
+import Goalx from './pages/formgoal/Goalx';
+import Feedback from './pages/feedbackform/feedback';
 function App() {
   return (
     <div>
@@ -20,6 +22,8 @@ function App() {
           <Route exact path='/manual' element={<Manual/>}/>
           <Route exact path='/dashboard' element={<Dashboard/>}/>
           <Route exact path='/profiling' element={<Profiling/>}/>
+          <Route exact path='/feedback' element={<Feedback/>}/>
+          <Route exact path='/goalx' element={<Goalx/>}/>
         </Routes>
       </Router>
     </div>

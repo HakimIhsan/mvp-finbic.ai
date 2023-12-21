@@ -37,7 +37,7 @@ const Goal = [
   },
 ]
 
-export default function Goal() {
+export default function Goalx() {
   const [selected, setSelected] = useState(Goal[0])
 
   return (   
