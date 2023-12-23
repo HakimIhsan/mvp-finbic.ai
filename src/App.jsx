@@ -9,6 +9,7 @@ import Bank from './pages/formbank/Bank';
 import Dashboard from './pages/dashboard/Dashboard';
 import Goalx from './pages/formgoal/Goalx';
 import Feedback from './pages/feedbackform/feedback';
+import Profile from './pages/profile/Profile';
 function App() {
   return (
     <div>
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/profiling' element={<Profiling/>}/>
           <Route exact path='/feedback' element={<Feedback/>}/>
           <Route exact path='/goalx' element={<Goalx/>}/>
+          <Route exact path='/profile' element={<Profile/>}/>
         </Routes>
       </Router>
     </div>
