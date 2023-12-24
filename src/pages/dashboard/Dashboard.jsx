@@ -7,60 +7,11 @@ import { Tab } from '@headlessui/react'
 import React from 'react';
 
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  
-]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Dashboard() {
-
-  let [categories] = useState({
-    Recommendation: [
-      {
-        id: 1,
-        title: 'Deposito Berjangka',
-        link: 'www.bca.co.id/id/Individu/produk/simpanan/Deposito-Berjangka',
-      },
-      {
-        id: 2,
-        title: "Reksadana Sukofindo",
-        link: 'www.bca.co.id/id/Individu/produk/simpanan/Deposito-Berjangka',
-        
-      },
-
-    ],
-    Education: [
-      {
-        id: 1,
-        title: 'Ask Me Anything: 10 answers to your questions about coffee',
-        date: '2d ago',
-        commentCount: 9,
-        shareCount: 5,
-      },
-      {
-        id: 2,
-        title: "The worst advice we've ever heard about coffee",
-        date: '4d ago',
-        commentCount: 1,
-        shareCount: 2,
-      },
-    ],
-  })
 
   return (
     <>
@@ -125,11 +76,11 @@ export default function Dashboard() {
             Profile
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
-
-
-
       </div>
     </div>
+
+
+    
       {/* Dashboard Layout */}
       <div className="min-h-full">
         <header className="bg-white shadow">
@@ -221,9 +172,6 @@ export default function Dashboard() {
     <div class="flex justify-between items-center">
     </div> 
     </div>
-
-  
-    
              </div> 
           </div>          
           </div>
@@ -233,5 +181,3 @@ export default function Dashboard() {
     </>
     )
   }
-  
-  
