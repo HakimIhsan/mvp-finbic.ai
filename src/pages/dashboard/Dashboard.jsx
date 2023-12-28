@@ -23,7 +23,9 @@ export default function Dashboard() {
   function openModal() {
     setIsOpen(true)
   }
-
+  const MaximizedLayout = () => {
+  } 
+  
   return (
     <>
 {/* Menu app */}
@@ -149,20 +151,19 @@ export default function Dashboard() {
         </Dialog>
       </Transition>
 
-    
       {/* Dashboard Layout */}
-      <div className="min-h-full">
+      <div className="min-h-screen">
         <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-8xl px-4 py-8 sm:px-8 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight text-center text-gray-900">My Financial Dashboard </h1>
           </div>
         </header>
+      
         <main>
-          <div className="mx-auto text-center max-w-7xl py-6 sm:px-6 lg:px-8">
-            
+          <div className="mx-auto text-center max-w-7xl py-6 sm:px-6 lg:px-8">      
             {/* Analytics */}
             <div className="flex justify-center h-screen">
-          <div className="max-w-sm w-full bg-blue-100 rounded-lg shadow center dark:bg-gray-800 p-4 md:p-6">
+          <div className="max-w-sm w-full h-full bg-blue-100 rounded-lg shadow center dark:bg-gray-800 p-4 md:p-6">
             <div className="grid grid-cols-3 gap-2 py-3">
             <div className ="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-12">
              <dl>
@@ -213,7 +214,8 @@ export default function Dashboard() {
         id="response"
         rows="4"
         className="block text-center p-20 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      ></area>
+      > 
+      </area>
     </div>
     
     <form>
@@ -236,16 +238,39 @@ export default function Dashboard() {
       <label htmlFor="disclaimer" className="block my-1 mt-2 text-xs font-light text-gray-900 dark:text-white">
       *System can make mistakes and keep learning. Consider checking important information.
       </label>
-
-    </form>
-    <div class="flex justify-between items-center">
-    </div> 
-    </div>
-             </div> 
-          </div>          
-          </div>      
-        </main>
+      </form>
+      </div>    
+      <div class="flex mt-10 text-left justify-between">
+    <Toast>
+      <div className="flex items-start">
+        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-100 text-cyan-500 dark:bg-cyan-900 dark:text-cyan-300">
+          <MdLoop className="h-5 w-5" />
+        </div>
+        <div className="ml-3 text-sm font-normal">
+          <span className="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Send us feedback!</span>
+          <div className="mb-2 text-sm font-normal">
+          Please help us continuously improve our platform. </div>
+          <div className="flex-start flex gap-2">
+            <div className="w-auto">
+              <Button size="xs">Review us</Button>
+            </div>
+            <div className="w-auto">
+              <Button color="light" size="xs">
+                Not now
+              </Button>
+            </div>
+          </div>
+        </div>
+        <ToastToggle />
       </div>
+    </Toast>
+      </div> 
+      
+    </div> 
+    </div> 
+    </div> 
+    </main>
+    </div>
     </>
     )
   }
