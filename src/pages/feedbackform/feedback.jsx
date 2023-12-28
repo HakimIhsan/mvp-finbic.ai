@@ -3,6 +3,10 @@ import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
 import { Rating, RatingStar } from 'flowbite-react';
+import { Breadcrumb, BreadcrumbItem } from 'flowbite-react';
+import { HiHome } from 'react-icons/hi';
+import { Toast } from 'flowbite-react';
+import { FaTelegramPlane } from 'react-icons/fa';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -25,8 +29,18 @@ export default function Feedback() {
             }}
           />
         </div>
+
+        {/* Breadcrumbs */}
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Rate Your Experience</h2>
+      <Breadcrumb aria-label="Default breadcrumb example">
+      <BreadcrumbItem href="#" icon={HiHome}>
+        Dashboard
+      </BreadcrumbItem>
+      <BreadcrumbItem>Feedback</BreadcrumbItem>
+    </Breadcrumb>
+
+    {/* Rating */}
+        <h2 className="text-3xl mt-10 font-bold tracking-tight text-gray-900 sm:text-4xl">Rate Your Experience</h2>
       </div>
       <div className="max-w-md mt-10 mx-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 w-full px-8 py-5">
       <div className="flex text-center mt-10 flex-col gap-2">
@@ -38,6 +52,8 @@ export default function Feedback() {
         <RatingStar filled={false} />
       </Rating>
     </div>
+
+    {/* Form */}
       <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <fieldset>
