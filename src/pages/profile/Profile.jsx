@@ -121,6 +121,13 @@ export default function Feedback() {
               Delete
             </a>
           </DropdownItem>
+          <DropdownItem>
+            <a
+              href="#"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+              Log Out
+            </a>
+          </DropdownItem>
         </Dropdown>
       </div>
       <div className="flex flex-col items-center pb-10">
